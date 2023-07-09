@@ -1,0 +1,50 @@
+<style>
+body{
+    background-color: rgb(221, 226, 230);
+    font-size: 15px;
+}
+img{
+    float: right;
+}
+.main{
+    padding: 20px 20px 20px 20px;
+}
+</style>
+<body>
+<tbody>
+    {% for i in result %}
+        {% if i != {} %}
+        <div class="main">
+            <div class="div1"><img src="{{i['img']}}" width="200px" height="300px" alt="img"></div>
+            <div class="div2">
+            <p><b>Title</b> : {{i['title']}}</p>
+            <p><b>Year</b> : {{i['year']}}</p>
+            <p><b>Runtime</b> : {{i['time']}}</p>
+            <p><b>Summary</b> : {{i['summary']}}</p>
+            <p><b>Director</b> : {{i['director']}}</p>
+            <p><b>Rating</b> : {{i['rating']}}</p>
+            <p><b>Genres</b> : 
+            {% for j in i['genres']%}
+                <span>{{j}} &nbsp;</span>
+            {% endfor %}
+            </p>
+            <p><b>Starring</b> : 
+            {% for j in i['starring']%}
+                <span>{{j}} &nbsp;</span>
+            {% endfor %}
+            </p>
+            </div>
+        </div>
+            <hr/>
+        {% endif %}
+    {% endfor %}
+</tbody>
+</body>
+<!-- <script>
+    // console.log({result});
+    // const res = {{ result }};
+    document.getElementById("res").innerHTML = 'hii'
+    for (let i in result){
+        document.getElementById("res").innerHTML += "{{result[i]}}\n"
+    }
+</script> -->
